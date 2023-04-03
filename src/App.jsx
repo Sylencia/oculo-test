@@ -4,9 +4,11 @@ import './App.css';
 import data from './examinations.json';
 import { SET_DATA } from './constants';
 import { Filters } from './Filters/Filters';
+import { Examination } from './Examination';
 
 function App() {
-  const [, dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useContext(StoreContext);
+  const { filteredData } = state;
 
   // While this is just local data, this can then be replaced with an endpoint query
   // to get the data from a different source.
@@ -22,6 +24,9 @@ function App() {
   return (
     <div className="App">
       <Filters />
+      {filteredData.map((exam) => (
+        <Examination key={exam.date} examinationData={exam} />
+      ))}
     </div>
   );
 }

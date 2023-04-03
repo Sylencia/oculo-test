@@ -14,6 +14,7 @@ export const Filters = () => {
         modality: CHANGE_MODALITY_FILTER,
       }[type] || '';
 
+    console.log(e.target.value, type);
     if (dispatchType) {
       dispatch({
         type: dispatchType,

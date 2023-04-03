@@ -10,13 +10,13 @@ export const storeInitialState = {
   modalityOptions: [null],
   dateOptions: [null],
   data: null,
-  filteredData: null,
+  filteredData: [],
 };
 
 // Filter by dates first, then within the matched dates filter the images within
 const filterData = (data, date, modality) => {
   if (!data) {
-    return null;
+    return [];
   }
 
   // Skip any checks where the filter is not set
