@@ -1,0 +1,13 @@
+.examination-container {
+  border: 1px solid lightgray;
+  padding: 8px;
+}
+
+.examination-container:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.examination-date {
+  margin: 2px;
+  text-align: center;
+}

@@ -18,7 +18,6 @@ export const Filters = () => {
         modality: CHANGE_MODALITY_FILTER,
       }[type] || '';
 
-    console.log(e.target.value, type);
     if (dispatchType) {
       dispatch({
         type: dispatchType,
@@ -53,7 +52,7 @@ export const Filters = () => {
     <div className="filter-container">
       <div className="filter-item">
         <label htmlFor="modalityFilter">
-          Filter by Modality:
+          <span className="filter-title">Modality:</span>
           <select
             id="modalityFilter"
             value={modalityFilter}
@@ -65,7 +64,7 @@ export const Filters = () => {
       </div>
       <div className="filter-item">
         <label htmlFor="dateFilter">
-          Filter by Date:
+          <span className="filter-title">Date:</span>
           <select
             id="dateFilter"
             value={dateFilter}

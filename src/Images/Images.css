@@ -1,0 +1,22 @@
+.images-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.images-title-container {
+  border-bottom: 1px solid lightgray;
+}
+
+.images-error {
+  text-align: center;
+}
+
+.images-title {
+  width: 50%;
+  text-transform: uppercase;
+}
+
+.image-details {
+  width: 50%;
+  margin: 8px 0;
+}

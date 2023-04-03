@@ -1,9 +1,19 @@
 .filter-container {
+  position: sticky;
+  top: 0;
+  background-color: white;
+
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-around;
   margin-bottom: 8px;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  padding: 8px;
 }
 
-.filter-item:not(:first-of-type) {
-  margin-left: 8px;
+.filter-title {
+  margin-bottom: 8px;
+  margin-right: 4px;
+  font-size: 1em;
 }

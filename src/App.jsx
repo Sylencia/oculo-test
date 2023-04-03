@@ -6,7 +6,7 @@ import { SET_DATA } from './constants';
 import { Filters } from './Filters/Filters';
 import { Examination } from './Examination';
 
-function App() {
+const App = () => {
   const [state, dispatch] = useContext(StoreContext);
   const { filteredData } = state;
 
@@ -23,12 +23,17 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Oculo FE Test</h1>
       <Filters />
-      {filteredData.map((exam) => (
-        <Examination key={exam.date} examinationData={exam} />
-      ))}
+      {filteredData.length ? (
+        filteredData.map((exam) => (
+          <Examination key={exam.date} examinationData={exam} />
+        ))
+      ) : (
+        <div>No images found.</div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
