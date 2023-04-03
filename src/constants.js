@@ -1,4 +1,3 @@
-export const EMPTY_FILTER = 'empty';
 export const CHANGE_MODALITY_FILTER = 'CHANGE_MODALITY_FILTER';
 export const CHANGE_DATE_FILTER = 'CHANGE_DATE_FILTER';
-export const SET_DATA = 'SET_DATA'
+export const SET_DATA = 'SET_DATA';

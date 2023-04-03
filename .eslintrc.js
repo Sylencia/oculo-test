@@ -21,5 +21,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'react/prop-types': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
