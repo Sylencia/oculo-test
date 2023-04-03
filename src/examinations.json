@@ -1,0 +1,50 @@
+{
+  "examinations": [
+    {
+      "date": "2019-04-01",
+      "images": [
+        {
+          "eye": "L",
+          "modality": "OCT",
+          "note": "Left eye thickness is 2um which is normal",
+          "thumbnail": "/images/20190401_oct_left.jpg"
+        },
+        {
+          "eye": "R",
+          "modality": "OCT",
+          "note": "Right eye thickness is 1um which is getting slightly out of normal range.",
+          "thumbnail": "/images/20190401_oct_right.jpg"
+        },
+        {
+          "eye": "L",
+          "modality": "OP",
+          "note": "Right eye looks normal",
+          "thumbnail": "/images/20190401_op_left.jpg"     
+        },
+        {
+          "eye": "R",
+          "modality": "OP",
+          "note": "Left eye looks normal",
+          "thumbnail": "/images/20190401_op_right.jpg"
+        }    
+      ]
+    },
+    {
+      "date": "2019-04-13",
+      "images": [
+        {
+          "eye": "L",
+          "modality": "OCT",
+          "note": "Left eye looks normal",
+          "thumbnail": "/images/20190413_oct_left.jpg"
+        },
+        {
+          "eye": "R",
+          "modality": "OCT",
+          "note": "Right eye thickness is 0.5um which is quite a bit less than normal and will require treatment",
+          "thumbnail": "/images/20190413_oct_right.jpg"
+        }
+      ]
+    }
+  ]
+}
