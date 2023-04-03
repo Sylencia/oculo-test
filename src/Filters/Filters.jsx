@@ -1,6 +1,10 @@
 import { useContext, useMemo } from 'react';
 import { StoreContext } from '../Store';
-import { CHANGE_DATE_FILTER, CHANGE_MODALITY_FILTER } from '../constants';
+import {
+  CHANGE_DATE_FILTER,
+  CHANGE_MODALITY_FILTER,
+  NO_FILTER,
+} from '../constants';
 import './Filters.css';
 
 export const Filters = () => {
@@ -29,7 +33,7 @@ export const Filters = () => {
     () =>
       modalityOptions.map((modality) => (
         <option key={`modality-${modality}`} value={modality}>
-          {modality || '-'}
+          {modality === NO_FILTER ? '-' : modality}
         </option>
       )),
     [modalityOptions]
@@ -39,7 +43,7 @@ export const Filters = () => {
     () =>
       dateOptions.map((date) => (
         <option key={`date-${date}`} value={date}>
-          {date || '-'}
+          {date === NO_FILTER ? '-' : date}
         </option>
       )),
     [dateOptions]

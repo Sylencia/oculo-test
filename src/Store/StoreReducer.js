@@ -2,13 +2,14 @@ import {
   CHANGE_MODALITY_FILTER,
   CHANGE_DATE_FILTER,
   SET_DATA,
+  NO_FILTER,
 } from '../constants';
 
 export const storeInitialState = {
-  modalityFilter: null,
-  dateFilter: null,
-  modalityOptions: [null],
-  dateOptions: [null],
+  modalityFilter: NO_FILTER,
+  dateFilter: NO_FILTER,
+  modalityOptions: [NO_FILTER],
+  dateOptions: [NO_FILTER],
   data: null,
   filteredData: [],
 };
@@ -20,29 +21,29 @@ const filterData = (data, date, modality) => {
   }
 
   // Skip any checks where the filter is not set
-  const dateMatchedExams = !date
-    ? data
-    : data.filter((exam) => exam.date === date);
+  const dateMatchedExams =
+    date === NO_FILTER ? data : data.filter((exam) => exam.date === date);
 
-  const modalityMatchedImages = !modality
-    ? dateMatchedExams
-    : dateMatchedExams.map((exam) => ({
-        ...exam,
-        images: exam.images.filter(
-          (imageData) => imageData.modality === modality
-        ),
-      }));
+  const modalityMatchedImages =
+    modality === NO_FILTER
+      ? dateMatchedExams
+      : dateMatchedExams.map((exam) => ({
+          ...exam,
+          images: exam.images.filter(
+            (imageData) => imageData.modality === modality
+          ),
+        }));
 
   return modalityMatchedImages;
 };
 
 // Assumption: Each date is unique - multiple examinations in one day would be grouped in one object
 const getDateOptions = (data) =>
-  data ? [null, ...data.map((exam) => exam.date).sort()] : [null];
+  data ? [NO_FILTER, ...data.map((exam) => exam.date).sort()] : [NO_FILTER];
 
 const getModalityOptions = (data) => {
   if (!data) {
-    return [null];
+    return [NO_FILTER];
   }
   const uniqueModalities = new Set();
 
@@ -52,7 +53,7 @@ const getModalityOptions = (data) => {
     );
   });
 
-  return [null, ...Array.from(uniqueModalities).sort()];
+  return [NO_FILTER, ...Array.from(uniqueModalities).sort()];
 };
 
 export const storeReducer = (state, action) => {
