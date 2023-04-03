@@ -7,6 +7,8 @@ import {
 export const storeInitialState = {
   modalityFilter: null,
   dateFilter: null,
+  modalityOptions: [null],
+  dateOptions: [null],
   data: null,
   filteredData: null,
 };
@@ -22,8 +24,6 @@ const filterData = (data, date, modality) => {
     ? data
     : data.filter((exam) => exam.date === date);
 
-  console.log(dateMatchedExams, date, modality);
-
   const modalityMatchedImages = !modality
     ? dateMatchedExams
     : dateMatchedExams.map((exam) => ({
@@ -34,6 +34,25 @@ const filterData = (data, date, modality) => {
       }));
 
   return modalityMatchedImages;
+};
+
+// Assumption: Each date is unique - multiple examinations in one day would be grouped in one object
+const getDateOptions = (data) =>
+  data ? [null, ...data.map((exam) => exam.date).sort()] : [null];
+
+const getModalityOptions = (data) => {
+  if (!data) {
+    return [null];
+  }
+  const uniqueModalities = new Set();
+
+  data.forEach((exam) => {
+    exam.images.forEach((imageData) =>
+      uniqueModalities.add(imageData.modality)
+    );
+  });
+
+  return [null, ...Array.from(uniqueModalities).sort()];
 };
 
 export const storeReducer = (state, action) => {
@@ -74,6 +93,8 @@ export const storeReducer = (state, action) => {
           state.dateFilter,
           state.modalityFilter
         ),
+        dateOptions: getDateOptions(examinations),
+        modalityOptions: getModalityOptions(examinations),
       };
     }
     default:

@@ -77,7 +77,7 @@ it('changes date state correctly', async () => {
   expect(newState.dateFilter).toEqual('2019-04-01');
 });
 
-it('adds data correctly', async () => {
+it('adds data, dateOptions and modalityOptions correctly when data is set', async () => {
   const newState = storeReducer(storeInitialState, {
     type: SET_DATA,
     payload: {
@@ -86,6 +86,8 @@ it('adds data correctly', async () => {
   });
 
   expect(newState.data).toEqual(modifiedData);
+  expect(newState.modalityOptions).toEqual([null, 'OCT', 'OP']);
+  expect(newState.dateOptions).toEqual([null, '2019-04-01', '2019-04-13']);
 });
 
 describe('filtering', () => {

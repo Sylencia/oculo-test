@@ -1,8 +1,9 @@
 import { useContext, useEffect } from 'react';
-import { StoreContext } from './Store/StoreProvider';
+import { StoreContext } from './Store';
 import './App.css';
 import data from './examinations.json';
 import { SET_DATA } from './constants';
+import { Filters } from './Filters/Filters';
 
 function App() {
   const [, dispatch] = useContext(StoreContext);
@@ -20,20 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/images/20190401_oct_left.jpg" alt="test" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Filters />
     </div>
   );
 }
