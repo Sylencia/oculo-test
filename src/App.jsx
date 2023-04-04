@@ -25,13 +25,15 @@ const App = () => {
     <div className="App">
       <h1>Oculo FE Test</h1>
       <Filters />
-      {filteredData.length ? (
-        filteredData.map((exam) => (
-          <Examination key={exam.date} examinationData={exam} />
-        ))
-      ) : (
-        <div>No images found.</div>
-      )}
+      <div id="examination">
+        {filteredData.length ? (
+          filteredData.map((exam) => (
+            <Examination key={exam.date} examinationData={exam} />
+          ))
+        ) : (
+          <span>No images found.</span>
+        )}
+      </div>
     </div>
   );
 };

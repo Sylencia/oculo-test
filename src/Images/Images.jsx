@@ -17,17 +17,15 @@ export const Images = ({ imageData }) => {
       </div>
       <div className="images-container">
         {imageData.map((image) => {
-          const { modality, note, thumbnail } = image;
+          const { modality, note, thumbnail, eye } = image;
 
           return (
-            <div className="image-details">
+            <div className="image-details" key={`image_${modality}_${eye}`}>
               <img src={thumbnail} alt={note} />
-              <p>
-                <b>Modality:</b> {modality}
-              </p>
-              <p>
-                <b>Note:</b> {note}
-              </p>
+              <ul>
+                <li>Modality: {modality}</li>
+                <li>Note: {note}</li>
+              </ul>
             </div>
           );
         })}

@@ -2,6 +2,7 @@ import {
   CHANGE_MODALITY_FILTER,
   CHANGE_DATE_FILTER,
   SET_DATA,
+  NO_FILTER,
 } from '../constants';
 import data from '../examinations.json';
 import { storeInitialState, storeReducer } from './StoreReducer';
@@ -86,14 +87,14 @@ it('adds data, dateOptions and modalityOptions correctly when data is set', asyn
   });
 
   expect(newState.data).toEqual(modifiedData);
-  expect(newState.modalityOptions).toEqual([null, 'OCT', 'OP']);
-  expect(newState.dateOptions).toEqual([null, '2019-04-01', '2019-04-13']);
+  expect(newState.modalityOptions).toEqual([NO_FILTER, 'OCT', 'OP']);
+  expect(newState.dateOptions).toEqual([NO_FILTER, '2019-04-01', '2019-04-13']);
 });
 
 describe('filtering', () => {
   const initialState = {
-    modalityFilter: null,
-    dateFilter: null,
+    modalityFilter: NO_FILTER,
+    dateFilter: NO_FILTER,
     data: modifiedData,
     filteredData: null,
   };
